@@ -48,7 +48,7 @@ public class tabFragment extends Fragment implements ArticleAdapter.OnItemClicke
     TextView catagory;
     CardView card;
     RecyclerView recycler,catagories,recyclerStart;
-    private RecyclerView.Adapter aramAdapter, intmAdapter,QuiAdapter,QuickStart, podmAdapter,PodStart,catmAdapter;
+    private RecyclerView.Adapter aramAdapter, intmAdapter,QuiAdapter,IntStart, podmAdapter,PodStart,catmAdapter,catiAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private static final int NUM_COLUMNS = 1;
     SliderView sliderView;
@@ -85,6 +85,7 @@ public class tabFragment extends Fragment implements ArticleAdapter.OnItemClicke
 //        SliderAdapter adapter = new SliderAdapter(getActivity());
         final ArrayList<article> publish = new ArrayList<>();
         final ArrayList<article> podStart = new ArrayList<>();
+        final ArrayList<article> intStart = new ArrayList<>();
 
         final ArrayList<article> articles = new ArrayList<>();
         final ArrayList<article> intarticle = new ArrayList<>();
@@ -115,6 +116,11 @@ public class tabFragment extends Fragment implements ArticleAdapter.OnItemClicke
 //        adapter.addItem(new SliderItem("https://picsum.photos/id/91/500/500", "im all ablove tofay just as you"));
 //        adapter.addItem(new SliderItem("https://picsum.photos/id/71/500/500", "get sarted with everything you see"));
         String check = getArguments().getString("title");
+        caregory_list.add(new article(CATEGORY, "Art & History"));
+        caregory_list.add(new article(CATEGORY, "Lifestyle"));
+        caregory_list.add(new article(CATEGORY, "Fashion"));
+        caregory_list.add(new article(CATEGORY, "Traditional"));
+        caregory_list.add(new article(CATEGORY, "Enterpeniors"));
 
         if (check == null) {
 
@@ -199,9 +205,9 @@ public class tabFragment extends Fragment implements ArticleAdapter.OnItemClicke
 //intersting articles
                 Log.e("str", str );
                 Log.e("i", check);
-                catagory.setVisibility(View.GONE);
-                catagories.setVisibility(View.GONE);
-                recyclerStart.setVisibility(View.GONE);
+//                catagory.setVisibility(View.GONE);
+//                catagories.setVisibility(View.GONE);
+//                recyclerStart.setVisibility(View.GONE);
                 card.setVisibility(View.GONE);
 
                 //for intresting articles
@@ -232,17 +238,42 @@ public class tabFragment extends Fragment implements ArticleAdapter.OnItemClicke
                 StaggeredGridLayoutManager staggeredGridLayoutManager2 = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL);
                 recycler.setAdapter(intmAdapter);
                 recycler.setLayoutManager(staggeredGridLayoutManager2);
+
+                intStart.add(new article(INTERESTING_ARTICLE, "Get Set and Go", "https://picsum.photos/id/453/200/300", "take a min to listen the best" +
+                        "",0));
+
+//        Categories
+                catagories.setHasFixedSize(true);
+                catiAdapter = new ArticleAdapter(caregory_list, new ArticleAdapter.OnItemClicked() {
+                    @Override
+                    public void onItemClick(int position) {
+
+                    }
+                }, getActivity());
+                StaggeredGridLayoutManager staggered2 = new StaggeredGridLayoutManager(1, LinearLayoutManager.HORIZONTAL);
+                catagories.setLayoutManager(staggered2);
+                catagories.setAdapter(catiAdapter);
+
+//                Start recyclerview
+                recyclerStart.setHasFixedSize(true);
+
+                IntStart = new ArticleAdapter(intStart, new ArticleAdapter.OnItemClicked() {
+                    @Override
+                    public void onItemClick(int position) {
+                        podcastw.add(podStart.get(position));
+                    }
+                }, getActivity());
+                StaggeredGridLayoutManager staggered3 = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL);
+                recyclerStart.setLayoutManager(staggered3);
+                recyclerStart.setAdapter(IntStart);
+
+
 ////interface
                 break;
             case "Podcasts":
                 Log.e("i", check);
                 card.setVisibility(View.GONE);
 
-                caregory_list.add(new article(CATEGORY, "Art & History"));
-                caregory_list.add(new article(CATEGORY, "Lifestyle"));
-                caregory_list.add(new article(CATEGORY, "Fashion"));
-                caregory_list.add(new article(CATEGORY, "Traditional"));
-                caregory_list.add(new article(CATEGORY, "Enterpeniors"));
 
 //                podcasts = view.findViewById(R.id.recycler);
 // podcast
@@ -293,8 +324,8 @@ public class tabFragment extends Fragment implements ArticleAdapter.OnItemClicke
                         podcastw.add(podStart.get(position));
                     }
                 }, getActivity());
-                StaggeredGridLayoutManager staggered2 = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL);
-                recyclerStart.setLayoutManager(staggered2);
+                StaggeredGridLayoutManager staggered4 = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL);
+                recyclerStart.setLayoutManager(staggered4);
                 recyclerStart.setAdapter(PodStart);
 
 
