@@ -70,7 +70,12 @@ public class MainActivity extends AppCompatActivity {
                             android.R.anim.fade_in, android.R.anim.fade_out).toBundle();
                     startActivity(new Intent(this, SearchActivity.class),b);
                     return true;
-
+                case R.id.Setting:
+                    // Some other methods
+                    Bundle b1 = ActivityOptionsCompat.makeCustomAnimation(this,
+                            android.R.anim.fade_in, android.R.anim.fade_out).toBundle();
+                    startActivity(new Intent(this, SettingsActivity.class),b1);
+                    return true;
                 default:
                     return super.onOptionsItemSelected(item);
 

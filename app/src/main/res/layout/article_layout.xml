@@ -73,10 +73,10 @@
         <TextView
             android:id="@+id/fav_article"
             android:layout_width="30dp"
-            android:layout_height="35dp"
+            android:layout_height="25dp"
             android:layout_alignParentStart="@id/card"
             android:layout_alignParentBottom="true"
-            android:gravity="left"
+            android:gravity="bottom"
             android:textSize="25dp"
             android:paddingLeft="10dp"
             android:textAppearance="?android:textAppearanceLarge"
