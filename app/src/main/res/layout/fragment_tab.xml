@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="none"
+    android:overScrollMode="never"
+    android:background="#fff"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_height="match_parent"
+    tools:context=".main.home.tabFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:id="@+id/cardquick"
+            android:layout_height="220dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="180dp"
+                            android:elevation="10dp"
+
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            app:cardElevation="10dp"
+                            app:cardCornerRadius="4dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/replacer"
+                                android:id="@+id/bookimage"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/ttl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                               android:layout_alignParentTop="true"
+                                android:ellipsize="end"
+                                android:gravity="center"
+                                android:fontFamily="@font/opensans_regular"
+                                android:maxLines="1"
+                                android:paddingRight="5dp"
+                                android:paddingTop="5dp"
+                                android:text="Title"
+                                android:textColor="#6A6A6A"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/qbookname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/ttl"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/opensans_semibold"
+                                android:maxLines="1"
+                                android:paddingRight="5dp"
+                                android:paddingTop="5dp"
+                                android:text="The Alchemist"
+                                android:textColor="@color/MainColor"
+                                android:textSize="20dp" />
+                            <TextView
+                                android:id="@+id/auth"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/qbookname"
+                                android:ellipsize="end"
+                                android:gravity="center"
+                                android:fontFamily="@font/opensans_regular"
+                                android:maxLines="1"
+                                android:paddingRight="5dp"
+                                android:paddingTop="5dp"
+                                android:text="Author"
+                                android:textColor="#6A6A6A"
+                                android:textSize="12dp" />
+
+
+                            <TextView
+                                android:id="@+id/qwriter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/auth"
+                                android:layout_marginTop="2dp"
+                                android:ellipsize="end"
+                                android:gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:fontFamily="@font/opensans_lightitalic"
+                                android:maxLines="1"
+                                android:text="Poulo Chasy"
+                                android:textColor="#2C2C2C"
+                                android:textSize="16dp" />
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:id="@+id/qprogress"
+                                android:layout_marginTop="5dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_below="@id/qwriter"
+                                android:layout_marginEnd="1dp"
+                                android:layout_marginBottom="1dp"
+                                app:cpb_background_progressbar_color="#DADADA"
+                                app:cpb_background_progressbar_width="4dp"
+                                app:cpb_progress="75"
+                                app:cpb_progress_direction="to_right"
+                                app:cpb_progressbar_color="@color/COMPANYCOLOR"
+                                app:cpb_progressbar_width="4dp"
+                                app:cpb_round_border="false" />
+                            <TextView
+                                android:id="@+id/fav_book"
+                                android:layout_width="45dp"
+                                android:layout_height="25dp"
+                                android:scaleType="centerInside"
+                                android:gravity="bottom"
+                                android:layout_alignParentEnd="true"
+                                android:textSize="20dp"
+                                android:paddingLeft="20dp"
+
+                                android:rotation="90"
+                                android:text="&#8942;"
+                                android:textColor="#000" />
+                            <TextView
+                                android:id="@+id/time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:scaleType="centerInside"
+                                android:gravity="start"
+                                android:fontFamily="@font/opensans_regular"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentBottom="true"
+                                android:textSize="14dp"
+                                android:text="10 mis. read"
+                                android:textColor="#000" />
+
+
+
+
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:clipToPadding="true"
+            android:paddingBottom="5dp"
+            android:id="@+id/recyclerStart"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            />
+
+        <TextView
+            android:id="@+id/textcatagory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/opensans_regular"
+            android:text="@string/categories"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/CategoryRecyclerview"
+            android:clipToPadding="false"
+
+            android:overScrollMode="never"
+            android:paddingEnd="15dp"
+            android:paddingBottom="15dp"
+            android:layout_width="match_parent"
+            android:nestedScrollingEnabled="false"
+            android:layout_height="match_parent" />
+
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:clipToPadding="true"
+        android:paddingBottom="50dp"
+        android:id="@+id/recycler"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+         />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/blurLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="200dp">
+
+    <ImageView
+        android:id="@+id/iv_auto_image_slider"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_height="match_parent">
+
+    </ImageView>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_auto_image_slider"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:textSize="12dp"
+        android:textColor="@color/COMPANYCOLOR"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_marginBottom="2dp"
+        android:text="booksoul's originals" />
+
+    <TextView
+        android:id="@+id/tv_auto_image_slider"
+        android:layout_width="match_parent"
+        android:autoSizeTextType="uniform"
+        android:textSize="20dp"
+        android:textColor="#fff"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="50dp"
+        android:text="text" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/text"
+        android:background="#4DFFFFFF"/>
+
+
+</RelativeLayout>

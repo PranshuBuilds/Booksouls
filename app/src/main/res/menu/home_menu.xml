@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_search" android:title="Search" android:icon="@drawable/search"  app:showAsAction="always"/>
+    <item android:id="@+id/profile" android:title="Profile" android:icon="@android:drawable/ic_menu_more"  />
+    <item android:id="@+id/preference" android:title="Preference" android:icon="@android:drawable/ic_menu_more"  />
+    <item android:id="@+id/language" android:title="Language" android:icon="@android:drawable/ic_menu_more"  />
+    <item android:id="@+id/Setting" android:title="Setting" android:icon="@android:drawable/ic_menu_more"  />
+    <item android:id="@+id/loginFragment" android:title="Sign In" android:icon="@android:drawable/ic_menu_more"  />
+
+</menu>

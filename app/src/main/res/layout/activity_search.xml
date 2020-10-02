@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
+    tools:context=".SearchActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarSearch"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="top"
+        android:background="@color/cardview_light_background"
+        app:layout_collapseMode="pin"
+        app:title="@string/home" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_below="@id/toolbarSearch"
+        android:layout_margin="20dp"
+        android:id="@+id/searchCard"
+        android:background="@color/cardview_light_background"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp"
+        android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/editMobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:paddingStart="10dp"
+                android:drawablePadding="10dp"
+                android:background="@color/cardview_light_background"
+                android:drawableLeft="@drawable/search"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="    Article, Quicks, etc."/>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchCard"
+        android:id="@+id/recyclerSearch"/>
+
+
+</RelativeLayout>

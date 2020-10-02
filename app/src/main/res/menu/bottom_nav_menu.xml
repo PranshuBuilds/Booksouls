@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home_run"
+        android:title="@string/home"
+        android:iconTint="#fff"/>
+    <item
+        android:id="@+id/navigation_read"
+        android:icon="@drawable/readbottomnavactive"
+        android:title="@string/read"
+        android:iconTint="#fff"/>
+
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/listenbottomnavactive"
+        android:title="@string/listen"
+        android:iconTint="#fff"/>
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/saveforcardblack"
+        android:title="@string/title_notifications"
+        android:iconTint="#fff"/>
+
+</menu>

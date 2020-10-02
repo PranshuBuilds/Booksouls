@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".EpubViewer"
+    tools:openDrawer="start">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00171717"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:textAlignment="gravity"
+            android:background="@drawable/filled_border3"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <com.crazy.booksoul.epubview.DirectionalViewpager
+            android:id="@+id/custom_WebView"
+            android:paddingTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/seekLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:colorBackground"
+            android:paddingBottom="15dp"
+            android:maxHeight="1000dp" />
+
+        <TextView
+            android:id="@+id/textViewPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/seekBar"
+            android:layout_alignBottom="@+id/seekBar"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:text="0%"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textViewPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/textViewPercent"
+            android:layout_alignBottom="@+id/seekBar"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="2dp"
+            android:text="Page: "
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:layout_marginStart="15dp">
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="130dp"
+        android:scaleType="centerCrop"
+
+        android:layout_alignParentTop="true"
+        android:id="@+id/curatedImage"/>
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="130dp"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/gradient_trantoblack"/>
+
+
+    <TextView
+        android:id="@+id/fav_curated"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:gravity="center"
+        android:paddingLeft="1dp"
+        android:textStyle="bold"
+        android:rotation="0"
+        android:scaleType="centerInside"
+        android:text="&#8942;"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/curatedImage"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="8dp"
+        android:textColor="#000"
+
+        android:fontFamily="@font/opensans_regular"
+        android:textSize="16dp"
+        android:text="@string/tab_quicks"
+        android:id="@+id/curatedTitle"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_marginTop="5dp"
+
+        android:textColor="#000"
+        android:fontFamily="@font/opensans_regular"
+        android:textSize="12dp"
+        android:ellipsize="end"
+        android:layout_below="@id/curatedTitle"
+        android:text="@string/tab_quicks"
+        android:id="@+id/curatedDisc"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff"
+    tools:context=".main.read.ReadFragment">
+
+<!--    <TextView-->
+<!--        android:id="@+id/book1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="15dp"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:fontFamily="@font/montserrat_medium"-->
+<!--        android:padding="2dp"-->
+<!--        android:text="@string/read_offline_books"-->
+<!--        android:textColor="@color/selector_language"-->
+<!--        android:textSize="25dp" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/morebooks"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="15dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginEnd="15dp"-->
+<!--        android:fontFamily="@font/montserrat_medium"-->
+<!--        android:padding="2dp"-->
+<!--        android:text="@string/more"-->
+<!--        android:textColor="@color/colorPrimaryDark"-->
+<!--        android:textSize="15dp" />-->
+
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/book1"-->
+<!--        android:overScrollMode="never"-->
+<!--        android:clipToPadding="false"-->
+<!--        android:paddingRight="15dp"-->
+<!--        android:id="@+id/internalBooks"/>-->
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabRippleColor="#fff"
+        android:background="#fff"
+        app:tabIndicatorHeight="0dp"
+
+        app:tabMode="scrollable"
+        app:tabBackground="@drawable/tab_back"
+        app:tabTextAppearance="@style/tab_text"
+        app:tabTextColor="#AEAEAE"
+        app:tabSelectedTextColor="@color/MainColor"
+        android:id="@+id/tabs"/>
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:id="@+id/viewpager"
+        android:layout_below="@id/tabs"/>
+</RelativeLayout>

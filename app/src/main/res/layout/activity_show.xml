@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".ShowActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+
+        android:theme="@style/Theme.MaterialComponents.DayNight"
+        android:id="@+id/collapsebar"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/collape"
+
+            app:expandedTitleTextAppearance="@style/TextAppearance.Design.CollapsingToolbar.Expanded"
+            app:collapsedTitleTextAppearance="@style/RobotoBoldTextAppearance"
+            app:statusBarScrim="@color/cardview_light_background"
+            app:contentScrim="@color/cardview_light_background"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|enterAlways"
+            app:titleEnabled="false">
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:scaleType="centerCrop"
+                android:stateListAnimator="@anim/fragment_fade_exit"
+                app:layout_collapseMode="none"
+                android:id="@+id/imageShow"/>
+            <RelativeLayout
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:background="@drawable/tool_top"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="tttt"
+                    android:fontFamily="@font/montserrat_light"
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    android:id="@+id/topic"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/topic"
+                    android:id="@+id/title"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+
+                    android:fontFamily="@font/playfairdisplay_medium"
+                    android:text="@string/appbar_scrolling_view_behavior"
+                    android:textSize="20dp" />
+
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_gravity="top"
+                android:background="@color/cardview_light_background"
+                app:layout_collapseMode="pin"
+                android:layout_height="?attr/actionBarSize"
+                app:title="@string/home" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nested"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+        >
+
+
+
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/content"
+                        android:justificationMode="inter_word"
+                        android:autoSizeTextType="uniform"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/opensans_regular"
+                        android:text="@string/appbar_scrolling_view_behavior"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="14dp" />
+                    <LinearLayout
+                        android:layout_below="@id/content"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:id="@+id/lshow"
+                        android:layout_marginTop="10dp"
+
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/grey"/>
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="40dp"
+                            android:id="@+id/authorimage"
+                            android:src="@drawable/personshow"/>
+                        <TextView
+                            android:layout_marginTop="10dp"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tab_publishers"
+                            android:fontFamily="@font/opensans_regular"
+                            android:textStyle="bold"
+                            android:id="@+id/authorname"/>
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/opensans_regular"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/authordiscription"
+                            android:text="Texh entusiaest, Finencial expert"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="50dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/grey"/>
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/lshow"
+                        android:id="@+id/recycshow"/>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:translationY="-10dp"
+                        android:text="See more"
+                        android:background="@drawable/filled_border2"
+                        android:layout_below="@+id/recycshow"
+                        android:layout_marginEnd="100dp"
+                        android:layout_marginStart="100dp"/>
+
+                </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardoptions"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        android:background="#fff"
+        android:layout_gravity="bottom"
+        android:elevation="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+android:layout_marginBottom="10dp"
+        android:translationY="-10dp"
+        app:cardElevation="15dp"
+        app:layout_anchorGravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/llshow"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+
+            android:weightSum="2">
+
+            <ImageView
+                android:id="@+id/saveshow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="20dp"
+                android:src="@drawable/saveforcardblack"
+                app:tint="@color/cardview_light_background" />
+
+            <ImageView
+                android:id="@+id/share_article"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:tint="@color/cardview_light_background"
+                android:padding="20dp"
+                android:src="@drawable/sharebtn"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

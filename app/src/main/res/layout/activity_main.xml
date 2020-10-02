@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"
+        android:background="#fff"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        android:gravity="center_vertical"
+        android:scrollbarStyle="outsideInset"
+        android:layout_height="60dp">
+    <androidx.appcompat.widget.Toolbar
+        android:elevation="4dp"
+        android:id="@+id/toolbar_home"
+        android:outlineAmbientShadowColor="@color/Publishers"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        >
+
+        <ImageView
+            android:id="@+id/logoXmarks"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:layout_margin="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/booksouls_logo" />
+    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:layout_marginTop="60dp"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentBottom="true"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/mobile_navigation" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+
+        app:cardElevation="10dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="bottom"
+        app:cardCornerRadius="10dp">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:elevation="20dp"
+            android:outlineSpotShadowColor="@color/MainColor"
+            app:itemIconTint="@color/bottom_diff_color"
+            app:itemTextColor="@color/bottom_diff_color"
+            android:soundEffectsEnabled="true"
+            app:labelVisibilityMode="labeled"
+
+            android:layout_width="match_parent"
+            app:itemIconSize="20dp"
+            android:background="#fff"
+            android:layout_alignParentBottom="true"
+            android:layout_height="70dp"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

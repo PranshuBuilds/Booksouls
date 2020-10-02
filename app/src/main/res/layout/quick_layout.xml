@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/tools"
+
+    android:id="@+id/relative"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+
+    android:layout_marginTop="15dp"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:card_view="http://schemas.android.com/tools"
+        app:cardCornerRadius="4dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:elevation="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            card_view:cardElevation="10dp"
+            app:cardCornerRadius="4dp">
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:id="@+id/bookimage"/>
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/qbookname"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:fontFamily="@font/opensans_semibold"
+                android:maxLines="2"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
+                android:text="Random text for sampling and re directional purposeis used"
+                android:textColor="@color/MainColor"
+                android:textSize="20dp" />
+
+
+            <TextView
+                android:id="@+id/qwriter"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_below="@id/qbookname"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/opensans_lightitalic"
+                android:maxLines="4"
+                android:paddingTop="5dp"
+                android:text="Random text for sampling and re directional purposeis used"
+                android:textColor="#2C2C2C"
+                android:textSize="16dp" />
+
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/qprogress"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/qwriter"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                app:cpb_background_progressbar_color="#DADADA"
+                app:cpb_background_progressbar_width="4dp"
+                app:cpb_progress="75"
+                app:cpb_progress_direction="to_right"
+                app:cpb_progressbar_color="@color/COMPANYCOLOR"
+                app:cpb_progressbar_width="4dp"
+                app:cpb_round_border="false" />
+            <TextView
+                android:id="@+id/fav_book"
+                android:layout_width="45dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/qwriter"
+                android:scaleType="centerInside"
+                android:gravity="bottom"
+                android:layout_marginStart="5dp"
+                android:textSize="30dp"
+                android:paddingLeft="25dp"
+
+                android:rotation="90"
+                android:text="&#8942;"
+                android:textColor="#000" />
+
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

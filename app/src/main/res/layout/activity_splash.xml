@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/gb_both_blue"
+        android:id="@+id/img"
+        android:scaleType="centerCrop"
+        android:layout_centerInParent="true"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/booksouls_logo"
+        android:layout_centerInParent="true"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Read, Listen and Explore"
+        android:layout_alignParentBottom="true"
+        android:translationY="-20dp"
+        android:gravity="center"
+        android:fontFamily="@font/opensans_semibold"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+
+</RelativeLayout>

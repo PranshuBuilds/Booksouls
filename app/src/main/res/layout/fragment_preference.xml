@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".preference.PreferenceFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/choose_preference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/opensans_bold"
+            android:text="@string/language_preference"
+            android:textColor="#000"
+            android:textSize="42dp" />
+        <TextView
+            android:id="@+id/your"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_below="@id/choose_preference"
+            android:fontFamily="@font/opensans_regular"
+            android:text="@string/your_preference"
+            android:textColor="#5E5E5E"
+            android:textSize="35dp" />
+        <TextView
+            android:id="@+id/ch5"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_below="@id/your"
+            android:fontFamily="@font/opensans_regular"
+            android:text="@string/choose_any_five"
+            android:textColor="#5E5E5E"
+            android:textSize="15dp" />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pref_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ch5"
+            android:clipToPadding="false"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+
+        <Button
+            android:id="@+id/pref_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pref_recycler"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/button_state"
+            android:enabled="false"
+            android:fontFamily="@font/opensans_regular"
+            android:text="@string/next"
+            android:translationY="-10dp" />
+
+    </RelativeLayout>
+
+</ScrollView>
