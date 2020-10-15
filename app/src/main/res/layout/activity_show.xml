@@ -30,6 +30,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
+                android:background="@color/cardview_light_background"
                 android:scaleType="centerCrop"
                 android:stateListAnimator="@anim/fragment_fade_exit"
                 app:layout_collapseMode="none"
@@ -99,18 +100,14 @@
                     android:layout_height="match_parent">
 
 
-                    <TextView
+                    <WebView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/content"
-                        android:justificationMode="inter_word"
-                        android:autoSizeTextType="uniform"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/opensans_regular"
-                        android:text="@string/appbar_scrolling_view_behavior"
+                        android:background="#fff"
+
                         android:layout_marginBottom="10dp"
-                        android:textSize="14dp" />
+                       />
                     <LinearLayout
                         android:layout_below="@id/content"
                         android:layout_width="match_parent"
@@ -185,8 +182,6 @@
         android:elevation="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-android:layout_marginBottom="10dp"
-        android:translationY="-10dp"
         app:cardElevation="15dp"
         app:layout_anchorGravity="bottom">
 

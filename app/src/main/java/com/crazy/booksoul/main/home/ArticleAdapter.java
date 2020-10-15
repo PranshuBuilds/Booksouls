@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.crazy.booksoul.PlayerActivity;
 import com.crazy.booksoul.R;
 import com.crazy.booksoul.ShowActivity;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
@@ -330,7 +331,19 @@ public class ArticleAdapter extends RecyclerView.Adapter {
                     podholder.circularProgressBar.setVisibility(View.INVISIBLE);
                 podholder.topic.setText(currentItem2.getInterestingTopic());
                 podholder.discrption.setText(currentItem2.getIntretingDiscription());
-
+                podholder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(activity, PlayerActivity.class);
+                        i.putExtra("pos", position);
+                        i.putExtra("url", currentItem2.getInterstingUrl());
+                        i.putExtra("topic", currentItem2.getInterestingTopic());
+                        i.putExtra("disc", currentItem2.getIntretingDiscription());
+                        i.putExtra("time", currentItem2.getProgress());
+                        i.putExtra("type", mExampleList.get(position).getViewtype());
+                        activity.startActivity(i);
+                    }
+                });
                 podholder.fav_podcast.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -347,13 +360,6 @@ public class ArticleAdapter extends RecyclerView.Adapter {
                                         Toast.makeText(activity, String.format("save%d", position), Toast.LENGTH_SHORT).show();
 
                                         onClick.onItemClick(position);
-
-//                                        Bundle bundle = new Bundle();
-//                                        bundle.putarticleArrayList("arrayOfName", selected);
-//                                        bundle.putStringArray("arrayOfImageUrls", new String[]{url1, url2});
-//                                        Intent intent = new Intent(activity, WishlistFragment.class);
-//                                        intent.putExtras(bundle);
-
                                         return true;
                                     case R.id.share_article:
                                         //handle menu2 click
@@ -381,7 +387,7 @@ public class ArticleAdapter extends RecyclerView.Adapter {
                 });
                 break;
             case QUICKS:
-                article currentItem3 = mExampleList.get(position);
+                final article currentItem3 = mExampleList.get(position);
                 final QuickLayout quickholder = (QuickLayout) holder;
                 Glide.with(quickholder.mImageView)
                         .load(currentItem3.getInterstingUrl())
@@ -392,7 +398,20 @@ public class ArticleAdapter extends RecyclerView.Adapter {
 
                 quickholder.topic.setText(currentItem3.getInterestingTopic());
                 quickholder.discrption.setText(currentItem3.getIntretingDiscription());
+                quickholder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(activity, ShowActivity.class);
+                        i.putExtra("pos", position);
+                        i.putExtra("url", currentItem3.getInterstingUrl());
+                        i.putExtra("topic", "Quick");
+                        i.putExtra("title", currentItem3.getInterestingTopic());
+                        i.putExtra("time", 0);
 
+                        i.putExtra("type", mExampleList.get(position).getViewtype());
+                        activity.startActivity(i);
+                    }
+                });
                 quickholder.pop.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -483,7 +502,7 @@ public class ArticleAdapter extends RecyclerView.Adapter {
                     public void onClick(View view) {
                         Intent i = new Intent(activity, ShowActivity.class);
                         i.putExtra("pos", position);
-                        i.putExtra("url", currentItem5.getInterstingUrl());
+                        i.putExtra("url", "n");
                         i.putExtra("topic", "Publisher");
                         i.putExtra("title", currentItem5.getInterestingTopic());
                         i.putExtra("time", 0);
@@ -674,7 +693,7 @@ public class ArticleAdapter extends RecyclerView.Adapter {
             topic = itemView.findViewById(R.id.podcast_title);
             discrption = itemView.findViewById(R.id.podcast_discription);
             circularProgressBar = itemView.findViewById(R.id.progresspod);
-
+            relativeLayout = itemView.findViewById(R.id.relativePod);
 
         }
 //
@@ -685,8 +704,7 @@ public class ArticleAdapter extends RecyclerView.Adapter {
         public ImageView mImageView;
         public TextView topic, discrption, pop;
         CircularProgressBar circularProgressBar;
-
-
+        RelativeLayout relativeLayout;
         Boolean bool = false;
 
 
@@ -695,7 +713,7 @@ public class ArticleAdapter extends RecyclerView.Adapter {
             mImageView = itemView.findViewById(R.id.bookimage);
             topic = itemView.findViewById(R.id.qbookname);
             pop = itemView.findViewById(R.id.fav_book);
-
+            relativeLayout = itemView.findViewById(R.id.relativeQ);
             discrption = itemView.findViewById(R.id.qwriter);
             circularProgressBar = itemView.findViewById(R.id.qprogress);
 
@@ -749,6 +767,7 @@ public class ArticleAdapter extends RecyclerView.Adapter {
         }
 //
     }
+
     ///View holder Listen tab Updated view
     public static class UpdatedLayout extends RecyclerView.ViewHolder {
         public ImageView mImageView;
@@ -782,7 +801,7 @@ public class ArticleAdapter extends RecyclerView.Adapter {
 
         public CategoryLayout(View itemView) {
             super(itemView);
-            text=itemView.findViewById(R.id.catagorytext);
+            text = itemView.findViewById(R.id.catagorytext);
 //            circularProgressBar = itemView.findViewById(R.id.qprogress);
 
 

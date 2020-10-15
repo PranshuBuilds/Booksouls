@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.widget.NestedScrollView;
@@ -13,14 +14,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -45,13 +52,15 @@ import static com.crazy.booksoul.main.home.article.PUBLISHER;
 
 public class ShowActivity extends AppCompatActivity {
 
+    WebView content ;
+    ProgressDialog progressDialog;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
     static int id;
     LinearLayout linearLayout;
     int time, type;
     static int timepercent;
-    TextView content,title,topic;
+    TextView title,topic;
     private static int minnow;
     String urlimg,tm,ttl;
     AppBarLayout appBarLayout;
@@ -81,27 +90,24 @@ public class ShowActivity extends AppCompatActivity {
         final CardView cardView=findViewById(R.id.cardoptions);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         linearLayout=findViewById(R.id.llshow);
-        setSupportActionBar(toolbar);
 
-//this line shows back button
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         setSupportActionBar(toolbar);
-
         appBarLayout = (AppBarLayout) findViewById(R.id.collapsebar);
 
         title =  findViewById(R.id.title);
         topic =  findViewById(R.id.topic);
-        content =  findViewById(R.id.content);
-
-content.setText(R.string.content);
-
         topic.setText(i.getStringExtra("topic"));
         title.setText(i.getStringExtra("title"));
+
+        init();
 
         toolbar.setTitleTextAppearance(this, R.style.RobotoBoldTextAppearance);
         initCollapsingToolbar();
         ImageView img=findViewById(R.id.imageShow);
+        if(urlimg.equals("n"))
+            img.setVisibility(View.GONE);
         Glide.with(this)
                 .load(urlimg)
                 .into(img);
@@ -160,12 +166,9 @@ content.setText(R.string.content);
 
                 break;
             case INTERESTING_ARTICLE:
-//                intrestingArticles = view.findViewById(R.id.recycler);
-//intersting articles
                 Log.e("str", str);
 
                 //for intresting articles
-//        example.add(new article("https://picsum.photos/id/73/200/300","you are what I know what you are"));
 //
                 intarticle.add(new article(INTERESTING_ARTICLE, "Get up early", "https://picsum.photos/id/256/200/300", "wad awdiuhasiudn ehf heiuhf ehf iehf iehf eiuf ie what I know what you are", 40));
                 intarticle.add(new article(INTERESTING_ARTICLE, "To be better", "https://picsum.photos/id/533/200/300", "njfena ehf heiuhf ehf iehf iehf eiuf ie what I know what you are", 90));
@@ -182,11 +185,8 @@ content.setText(R.string.content);
                 StaggeredGridLayoutManager staggeredGridLayoutManager2 = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL);
                 recycler.setAdapter(intmAdapter);
                 recycler.setLayoutManager(staggeredGridLayoutManager2);
-////interface
                 break;
             case PUBLISHER:
-
-                ////for articleforyou recycler view
 
                 publish.add(new article(PUBLISHER, "you are what I know what you are", "https://picsum.photos/id/12/200/300", "DD ALL", 40));
                 publish.add(new article(PUBLISHER, "Change the world as you wish", "https://picsum.photos/id/59/200/300",  "POP ALL", 30));
@@ -310,6 +310,28 @@ content.setText(R.string.content);
         });
     }
 
+    private void init(){
+        content = (WebView)findViewById(R.id.content);
+        content.loadUrl("file:///android_asset/aa.html");
+        content.requestFocus();
+
+        progressDialog = new ProgressDialog(ShowActivity.this);
+        progressDialog.setMessage("Loading");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        content.setWebViewClient(new WebViewClient() {
+
+            public void onPageFinished(WebView view, String url) {
+                try {
+                    progressDialog.dismiss();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -322,7 +344,36 @@ content.setText(R.string.content);
         menu.findItem(R.id.listen).setIcon(drawable);
         return true;
     }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+        switch (item.getItemId()) {
+
+            case R.id.loginFragment:
+                Bundle bundle = ActivityOptionsCompat.makeCustomAnimation(this,
+                        android.R.anim.fade_in, android.R.anim.fade_out).toBundle();
+                startActivity(new Intent(this, LoginActivity.class),bundle);
+//                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
+                return true;
+
+            case R.id.action_search:
+                // Some other methods
+                Bundle b = ActivityOptionsCompat.makeCustomAnimation(this,
+                        android.R.anim.fade_in, android.R.anim.fade_out).toBundle();
+                startActivity(new Intent(this, SearchActivity.class),b);
+                return true;
+            case R.id.Setting:
+                // Some other methods
+                Bundle b1 = ActivityOptionsCompat.makeCustomAnimation(this,
+                        android.R.anim.fade_in, android.R.anim.fade_out).toBundle();
+                startActivity(new Intent(this, SettingsActivity.class),b1);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();

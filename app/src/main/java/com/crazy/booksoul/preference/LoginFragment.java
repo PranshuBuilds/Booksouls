@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -16,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crazy.booksoul.MainActivity;
@@ -36,7 +38,8 @@ import static com.crazy.booksoul.preference.PreferenceFragment.nonDuplicateStrin
 public class LoginFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
-
+    Toolbar toolbar;
+    TextView Register;
     Button explore;
     CallbackManager callbackManager;
     LoginButton loginButton;
@@ -66,19 +69,20 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         explore=view.findViewById(R.id.explore);
         loginButton=view.findViewById(R.id.fblogin_button);
+        Register=view.findViewById(R.id.register);
         final NavController navController= Navigation.findNavController(view);
-
+        Register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.action_loginFragment2_to_signUpFragment);
+            }
+        });
         explore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = ActivityOptionsCompat.makeCustomAnimation(getContext(),
                         android.R.anim.fade_in, android.R.anim.fade_out).toBundle();
                 startActivity(new Intent(getActivity(), MainActivity.class),bundle);
-////                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-//                getActivity().getSharedPreferences("run", MODE_PRIVATE).edit()
-//                        .putBoolean("isFirstRun", false).commit();
-//                getActivity().getSharedPreferences("my_preferences",MODE_PRIVATE).edit().putString("MYLABEL", nonDuplicateString).apply();
-
             }
         });
         FacebookSdk.sdkInitialize(FacebookSdk.getApplicationContext());
@@ -104,12 +108,6 @@ public class LoginFragment extends Fragment {
                     }
 
                 });
-//                Bundle bundle = ActivityOptionsCompat.makeCustomAnimation(getContext(),
-//                        android.R.anim.fade_in, android.R.anim.fade_out).toBundle();
-//                startActivity(new Intent(getActivity(), MainActivity.class),bundle);
-////                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-//                getActivity().getSharedPreferences("run", MODE_PRIVATE).edit()
-//                        .putBoolean("isFirstRun", false).commit();
             }
         }
         );

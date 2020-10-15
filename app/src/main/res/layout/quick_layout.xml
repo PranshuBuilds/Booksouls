@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     xmlns:card_view="http://schemas.android.com/tools"
 
-    android:id="@+id/relative"
+    android:id="@+id/relativeQ"
     android:layout_height="wrap_content"
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
